@@ -12,6 +12,8 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
+const STORAGE_KAY = 'theme';
+
 // Добавление разметки
 
 const markup = createMenuItems(menu);
@@ -28,11 +30,11 @@ function onSwitchTheme() {
   if (refs.checkbox.cheched) {
     refs.body.classList.add(Theme.DARK);
     refs.body.classList.remove(Theme.LIGHT);
-    localStorage.setItem('theme', Theme.DARK);
+    localStorage.setItem(STORAGE_KAY, Theme.DARK);
   } else {
     refs.body.classList.add(Theme.LIGHT);
     refs.body.classList.remove(Theme.DARK);
-    localStorage.setItem('theme', Theme.LIGHT);
+    localStorage.setItem(STORAGE_KAY, Theme.LIGHT);
   }
 
   //   localStorage.setItem('Theme', e.currentTarget.cheched);
@@ -41,13 +43,14 @@ function onSwitchTheme() {
 // const lightThemeDefault = localStorage.getItem(cheched) === 'true';
 
 function lightThemeDefault() {
-  const themeDefault = localStorage.getItem('theme');
+  const themeDefault = localStorage.getItem(STORAGE_KAY);
   if (themeDefault === Theme.LIGHT) {
     refs.body.classList.add(Theme.LIGHT);
+    // refs.body.classList.remove(Theme.DARK);
     refs.checkbox.cheched = true;
   } else {
     refs.body.classList.add(Theme.DARK);
-    // refs.body.classList.remove(Theme.LIGHT);
-    localStorage.setItem('theme', Theme.DARK);
+    refs.body.classList.remove(Theme.LIGHT);
+    localStorage.setItem(STORAGE_KAY, Theme.DARK);
   }
 }
