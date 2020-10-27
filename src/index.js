@@ -27,7 +27,7 @@ refs.checkbox.addEventListener('change', onSwitchTheme);
 lightThemeDefault();
 
 function onSwitchTheme() {
-  if (refs.checkbox.cheched) {
+  if (refs.checkbox.checked) {
     refs.body.classList.add(Theme.DARK);
     refs.body.classList.remove(Theme.LIGHT);
     localStorage.setItem(STORAGE_KAY, Theme.DARK);
@@ -47,7 +47,7 @@ function lightThemeDefault() {
   if (themeDefault === Theme.LIGHT) {
     refs.body.classList.add(Theme.LIGHT);
     // refs.body.classList.remove(Theme.DARK);
-    refs.checkbox.cheched = true;
+    refs.checkbox.checked = true;
   } else {
     refs.body.classList.add(Theme.DARK);
     refs.body.classList.remove(Theme.LIGHT);
