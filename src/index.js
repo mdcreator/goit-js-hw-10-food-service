@@ -24,7 +24,7 @@ function createMenuItems(menu) {
 }
 
 refs.checkbox.addEventListener('change', onSwitchTheme);
-lightThemeDefault();
+themeDefault();
 
 function onSwitchTheme() {
   if (refs.checkbox.checked) {
@@ -42,15 +42,11 @@ function onSwitchTheme() {
 
 // const lightThemeDefault = localStorage.getItem(cheched) === 'true';
 
-function lightThemeDefault() {
+function themeDefault() {
   const themeDefault = localStorage.getItem(STORAGE_KAY);
-  if (themeDefault === Theme.LIGHT) {
-    refs.body.classList.add(Theme.LIGHT);
+  if (themeDefault === Theme.DARK) {
+    refs.body.classList.add(Theme.DARK);
     // refs.body.classList.remove(Theme.DARK);
     refs.checkbox.checked = true;
-  } else {
-    refs.body.classList.add(Theme.DARK);
-    refs.body.classList.remove(Theme.LIGHT);
-    localStorage.setItem(STORAGE_KAY, Theme.DARK);
   }
 }
